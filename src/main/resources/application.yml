@@ -1,0 +1,20 @@
+# DataSource Config
+spring:
+  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/mybatis_plus
+    # 修改驱动为打印sql驱动
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/mybatis_plus
+    username: root
+    password: root
+    type: org.springframework.jdbc.datasource.DriverManagerDataSource
+
+# 配置mybatis-plus
+mybatis-plus:
+  mapper-locations:
+    - classpath:mapper/*Mapper.xml # 扫描mapper
+  global-config:
+    db-config:
+      id-type: auto # id类型
+    banner: true # 启动logo
