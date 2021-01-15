@@ -9,8 +9,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties({
         FileStorageProperties.class
 })
-@SpringBootApplication
 @MapperScan(basePackages= {"com.demo.mybatisplus.mapper"})
+@SpringBootApplication
 public class MybatisPlusApplication {
 
     public static void main(String[] args) {

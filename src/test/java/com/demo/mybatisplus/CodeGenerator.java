@@ -59,7 +59,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/uori?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -69,8 +69,8 @@ public class CodeGenerator {
         // 配置
         PackageConfig pc = new PackageConfig();
         // 模块位置   com.xx.sys
-        pc.setParent("com.weijiandata");
-        pc.setModuleName("uori");
+        pc.setParent("com.demo");
+        pc.setModuleName("mybatisplus");
         // 选择生成那些内容（包位置） com.xx.sys.controller...
         pc.setController("controller");
         pc.setEntity("domain");
@@ -93,6 +93,11 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
         //3、是否生成resetController
         strategy.setRestControllerStyle(true);
+
+//        strategy.setSuperServiceClass("com.xxx.BaseController");
+//        strategy.setSuperServiceImplClass("com.xxx.BaseController");
+
+
 //        //4、controller继承的父类
 //        strategy.setSuperControllerClass("com.xxx.BaseController");
 //        //5、domain继承的父类
@@ -101,11 +106,11 @@ public class CodeGenerator {
 //        strategy.setSuperEntityColumns("user_id","name");
 
         // 设置表的前缀---生成表的时候忽略前缀
-//        strategy.setTablePrefix("sys_");
+        strategy.setTablePrefix("sys_");
         // 要设置生成哪些表 如果不设置就是生成所有的表
 //        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         // 设置要生成的表(不设置这个属性表示全部生成)
-//        strategy.setInclude("sys_aaa");
+        strategy.setInclude("sys_aaa");
 
         //应用
         mpg.setStrategy(strategy);
